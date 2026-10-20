@@ -28,7 +28,10 @@
   config:
     includeHarnessIdentity: false
     personaPrefix: ""
-    personaSuffix: Your working directory is {{cwd}}.
+    # Patched locally: current DSH only registers {provider, model} for prompt
+    # templates, so the literal "{{cwd}}" crashes prompt assembly. Use a static,
+    # variable-free line instead.
+    personaSuffix: You have full filesystem access.
 
 - id: dsh-purge
   inject: [systemPrompt, tools]
